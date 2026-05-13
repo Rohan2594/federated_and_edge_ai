@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.tmp
+*.bak
+
+datasets/raw/CMAPSSData/
+datasets/raw/coco/
+
+results/
+visualizations/
+
+.idea/
+.vscode/
