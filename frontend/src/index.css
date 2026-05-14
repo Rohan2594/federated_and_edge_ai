@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #1e2d4a #0a0e1a;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #0a0e1a;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #1e2d4a;
+    border-radius: 3px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #2d4269;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a0e1a;
+    color: #e2e8f0;
+    font-family: "Inter", system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(0, 212, 255, 0.25);
+    color: #e2e8f0;
+  }
+}
+
+@layer components {
+  /* ── Glassmorphism card ── */
+  .glass-card {
+    @apply bg-cyber-750/80 backdrop-blur-md border border-cyber-500/50 rounded-xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-neon-cyan/30 hover:bg-cyber-700/80;
+  }
+
+  /* ── Neon text ── */
+  .text-neon-cyan {
+    color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00d4ff 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-hero {
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Glow borders ── */
+  .border-neon-cyan-glow {
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), inset 0 0 20px rgba(0, 212, 255, 0.03);
+  }
+
+  .border-neon-purple-glow {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15), inset 0 0 20px rgba(168, 85, 247, 0.03);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           bg-neon-cyan text-cyber-900 transition-all duration-300
+           hover:bg-cyan-300 active:scale-95;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 35px rgba(0, 212, 255, 0.6), 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           border border-neon-cyan/40 text-neon-cyan bg-transparent transition-all duration-300
+           hover:bg-neon-cyan/10 hover:border-neon-cyan/70 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           border border-cyber-500/50 text-slate-400 bg-transparent transition-all duration-300
+           hover:border-cyber-400 hover:text-slate-200 active:scale-95;
+  }
+
+  /* ── Metric cards ── */
+  .metric-card {
+    @apply glass-card p-5 flex flex-col gap-2;
+  }
+
+  /* ── Status dots ── */
+  .status-dot-online {
+    @apply w-2 h-2 rounded-full bg-neon-green;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .status-dot-offline {
+    @apply w-2 h-2 rounded-full bg-slate-600;
+  }
+
+  .status-dot-warning {
+    @apply w-2 h-2 rounded-full bg-neon-orange;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+
+  .status-dot-danger {
+    @apply w-2 h-2 rounded-full bg-neon-red;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+    animation: pulse-glow 1s ease-in-out infinite;
+  }
+
+  /* ── Chart container ── */
+  .chart-container {
+    @apply glass-card p-5;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    @apply text-xs font-mono font-medium tracking-widest uppercase text-neon-cyan/70;
+  }
+
+  /* ── Grid bg ── */
+  .cyber-grid-bg {
+    background-image: linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* ── Tag badges ── */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium;
+  }
+  .tag-cyan {
+    @apply tag bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20;
+  }
+  .tag-green {
+    @apply tag bg-neon-green/10 text-neon-green border border-neon-green/20;
+  }
+  .tag-orange {
+    @apply tag bg-neon-orange/10 text-neon-orange border border-neon-orange/20;
+  }
+  .tag-red {
+    @apply tag bg-neon-red/10 text-neon-red border border-neon-red/20;
+  }
+  .tag-purple {
+    @apply tag bg-neon-purple/10 text-neon-purple border border-neon-purple/20;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-glow {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.1);
+  }
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.1);
+  }
+  .glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.1);
+  }
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 60px rgba(245, 158, 11, 0.1);
+  }
+  .glow-red {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1);
+  }
+}
